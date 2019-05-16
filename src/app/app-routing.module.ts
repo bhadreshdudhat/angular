@@ -24,8 +24,8 @@ import { MyNotesComponent } from './my-notes/my-notes.component';
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
                     { path: 'about', component: AboutComponent },
                     { path: 'update-password', component: ChangePasswordComponent },
-                    { path: 'myvideos', component: MyVideosComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
-                    { path: 'mynotes', component: MyNotesComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] }
+                    { path: 'myvideos', component: MyVideosComponent, canActivate: [AppRouteGuard] },
+                    { path: 'mynotes', component: MyNotesComponent, canActivate: [AppRouteGuard] }
                 ]
             }
         ])
