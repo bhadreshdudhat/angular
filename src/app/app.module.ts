@@ -39,6 +39,7 @@ import { ChangePasswordComponent } from './users/change-password/change-password
 import { ResetPasswordDialogComponent } from './users/reset-password/reset-password.component';
 import { MyVideosComponent } from './my-videos/my-videos.component';
 import { MyNotesComponent } from './my-notes/my-notes.component';
+import { NotesService } from './my-notes/notes.service';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,7 @@ import { MyNotesComponent } from './my-notes/my-notes.component';
     SharedModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [NotesService],
   entryComponents: [
     // tenants
     CreateTenantDialogComponent,
