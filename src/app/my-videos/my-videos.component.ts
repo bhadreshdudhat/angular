@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyVideosComponent implements OnInit {
 
+Url1="https://vimeo.com/267517190";
+Url2="https://vimeo.com/20167586";
+
   constructor() { }
 
   ngOnInit() {
