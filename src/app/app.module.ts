@@ -40,6 +40,8 @@ import { ResetPasswordDialogComponent } from './users/reset-password/reset-passw
 import { MyVideosComponent } from './my-videos/my-videos.component';
 import { MyNotesComponent } from './my-notes/my-notes.component';
 import { NotesService } from './my-notes/notes.service';
+import { VideoComponent } from './video/video.component';
+import { EmbedVideo } from 'ngx-embed-video';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { NotesService } from './my-notes/notes.service';
     ChangePasswordComponent,
     ResetPasswordDialogComponent,
     MyVideosComponent,
-    MyNotesComponent
+    MyNotesComponent,
+    VideoComponent
   ],
   imports: [
     CommonModule,
@@ -80,7 +83,8 @@ import { NotesService } from './my-notes/notes.service';
     AppRoutingModule,
     ServiceProxyModule,
     SharedModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    EmbedVideo.forRoot() 
   ],
   providers: [NotesService],
   entryComponents: [
