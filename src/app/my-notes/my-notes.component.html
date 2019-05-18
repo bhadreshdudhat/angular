@@ -14,12 +14,12 @@
               #notes="ngModel"  
               [(ngModel)]="currentnote"
               required>
-              <div *ngIf="notes.touched && notes.errors">
-                  <div class="alert alert-danger" 
-                      *ngIf="notes.errors.required">
-                      Notes can not be Empty
-                  </div>
-              </div>
       </div>
     <button class="btn btn-primary" [disabled]="!f.valid">Save</button>
   </form>
+
+  <table class="table table-sm table-hover">
+    <tr *ngFor="let note of allnotes">
+      <td>{{note}}</td>
+    </tr>
+  </table>

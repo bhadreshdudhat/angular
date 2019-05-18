@@ -9,6 +9,11 @@ export class NotesService {
 
   constructor(private http:HttpClient) { }
 
+  getAllNotes(userEmail){
+  return this.http.get('http://localhost:21021/api/services/app/NotesService/GetAllNotes?useremail='+userEmail);
+  }
+  
+
   createNote(userNote:UserNote){
     var body = JSON.stringify(userNote);
     console.log(body);
@@ -17,7 +22,7 @@ export class NotesService {
           'Content-Type': 'application/json'
       })
   }
-	return this.http.post('http://localhost:21021/api/services/app/NotesService/CreateNote',body, headers);
-   
+  return this.http.post('http://localhost:21021/api/services/app/NotesService/CreateNote',body, headers);
+  
   }
 }
