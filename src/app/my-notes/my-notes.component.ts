@@ -14,6 +14,7 @@ export class MyNotesComponent extends AppComponentBase implements OnInit{
 
   loginUser;
   userNote:UserNote={userEmail:"",notes:""};
+  currentnote;
   private subs = new SubSink();//for more subs in future
     constructor( injector: Injector, private notesService:NotesService) {
         super(injector);
@@ -21,6 +22,11 @@ export class MyNotesComponent extends AppComponentBase implements OnInit{
 
     ngOnInit() {
         this.loginUser = this.appSession.user;
+
+        let unsavedNote = localStorage.getItem('unsavedNote');
+        if(unsavedNote) {
+          this.currentnote=unsavedNote;
+        }
     }
 
     save(notes){
@@ -30,9 +36,15 @@ export class MyNotesComponent extends AppComponentBase implements OnInit{
        console.log(this.userNote);
        this.subs.add(this.notesService.createNote(this.userNote).subscribe(res => {console.log('res', res) }));
       //call to server will happen only on subscribe
+      this.currentnote="";
+       localStorage.removeItem('unsavedNote');//on save remove from local storage
     }
 
     ngOnDestroy(){
+      //while moving to other component without saving the notes, save notes in localstorage
+      if(this.currentnote && this.currentnote!=""){
+        localStorage.setItem('unsavedNote', this.currentnote);
+      }
       this.subs.unsubscribe();
     }
 
