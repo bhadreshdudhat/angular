@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, HostListener } from '@angular/core';
 import { AppComponentBase } from '@shared/app-component-base';
 import { UserNote } from './UserNote';
 import { NotesService } from './notes.service';
@@ -58,6 +58,12 @@ export class MyNotesComponent extends AppComponentBase implements OnInit{
         localStorage.setItem('unsavedNote', this.currentnote);
       }
       this.subs.unsubscribe();
+    }
+
+    @HostListener('window:beforeunload') onBeforeUnload() {
+      if (this.currentnote && this.currentnote != "") {
+        localStorage.setItem('unsavedNote', this.currentnote);
+      }
     }
 
 }
