@@ -53,10 +53,6 @@ export class MyNotesComponent extends AppComponentBase implements OnInit{
     }
 
     ngOnDestroy(){
-      //while moving to other component without saving the notes, save notes in localstorage
-      if(this.currentnote && this.currentnote!=""){
-        localStorage.setItem('unsavedNote', this.currentnote);
-      }
       this.subs.unsubscribe();
     }
 
