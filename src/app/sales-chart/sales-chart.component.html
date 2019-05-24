@@ -1,3 +1,23 @@
-<p>
-  sales-chart works!
-</p>
+<div style="text-align:center">
+  <h2 class="jumbotron bg-secondary text-white">Sales Charts</h2>
+</div>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/app/saleschart/bar-chart">Bar Chart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/app/saleschart/doughnut-chart">Doughnut Chart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/app/saleschart/radar-chart">Radar Chart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/app/saleschart/pie-chart">Pie Chart</a>
+    </li>
+  </ul>
+  <div>
+      <router-outlet></router-outlet>
+  </div>
+</div>
