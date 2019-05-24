@@ -25,7 +25,12 @@ import { MyNotesComponent } from './my-notes/my-notes.component';
                     { path: 'about', component: AboutComponent },
                     { path: 'update-password', component: ChangePasswordComponent },
                     { path: 'myvideos', component: MyVideosComponent, canActivate: [AppRouteGuard] },
-                    { path: 'mynotes', component: MyNotesComponent, canActivate: [AppRouteGuard] }
+                    { path: 'mynotes', component: MyNotesComponent, canActivate: [AppRouteGuard] },
+                    {	
+                        path: 'saleschart',
+                        loadChildren: './sales-chart/sales-chart.module#SalesChartModule', //relativeFilePath # Modulename
+                        data: { preload: true }
+                    }
                 ]
             }
         ])
