@@ -8,11 +8,14 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { RadarChartComponent } from './radar-chart/radar-chart.component';
 import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
 
+import { ChartsModule } from 'ng2-charts'
+
 @NgModule({
   declarations: [SalesChartComponent, BarChartComponent, PieChartComponent, RadarChartComponent, DoughnutChartComponent],
   imports: [
     CommonModule,
-    SalesChartRoutingModule
+    SalesChartRoutingModule,
+    ChartsModule
   ]
 })
 export class SalesChartModule { }
