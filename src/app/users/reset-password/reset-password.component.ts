@@ -13,7 +13,7 @@ import {
 })
 export class ResetPasswordDialogComponent extends AppComponentBase
   implements OnInit {
-  public isLoading = false;
+  public loading = false;
   public resetPasswordDto: ResetPasswordDto;
 
   constructor(
@@ -26,22 +26,22 @@ export class ResetPasswordDialogComponent extends AppComponentBase
   }
 
   ngOnInit() {
-    this.isLoading = true;
+    this.loading = true;
     this.resetPasswordDto = new ResetPasswordDto();
     this.resetPasswordDto.userId = this._userId;
     this.resetPasswordDto.newPassword = Math.random()
       .toString(36)
       .substr(2, 10);
-    this.isLoading = false;
+    this.loading = false;
   }
 
   public resetPassword(): void {
-    this.isLoading = true;
+    this.loading = true;
     this._userService
       .resetPassword(this.resetPasswordDto)
       .pipe(
         finalize(() => {
-          this.isLoading = false;
+          this.loading = false;
         })
       )
       .subscribe(() => {
