@@ -42,6 +42,7 @@ import { MyNotesComponent } from './my-notes/my-notes.component';
 import { NotesService } from './my-notes/notes.service';
 import { VideoComponent } from './video/video.component';
 import { EmbedVideo } from 'ngx-embed-video';
+import { ConfigurationService } from '@shared/services/configuration.service';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,7 @@ import { EmbedVideo } from 'ngx-embed-video';
     NgxPaginationModule,
     EmbedVideo.forRoot() 
   ],
-  providers: [NotesService],
+  providers: [NotesService,ConfigurationService],
   entryComponents: [
     // tenants
     CreateTenantDialogComponent,
